@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pankaj Kumar – Deliverability & CRM Lead</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d0d0d;
+    --paper: #f5f0e8;
+    --accent: #b5451b;
+    --muted: #6b6560;
+    --rule: #d4cec6;
+    --highlight: #e8e0d0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 13.5px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* ── Grain overlay ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 48px auto;
+    background: #faf7f2;
+    box-shadow: 0 4px 40px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.08);
+    border-top: 4px solid var(--accent);
+  }
+
+  /* ── Header ── */
+  header {
+    padding: 52px 56px 40px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .name {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -1px;
+    color: var(--ink);
+  }
+
+  .name span {
+    color: var(--accent);
+  }
+
+  .tagline {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 10px;
+  }
+
+  .contact-block {
+    text-align: right;
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.9;
+  }
+
+  .contact-block a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  /* ── Layout ── */
+  .body {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+  }
+
+  .main-col {
+    padding: 44px 48px 44px 56px;
+    border-right: 1px solid var(--rule);
+  }
+
+  .side-col {
+    padding: 44px 40px 44px 36px;
+    background: var(--highlight);
+  }
+
+  /* ── Section label ── */
+  .section-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  section { margin-bottom: 36px; }
+  section:last-child { margin-bottom: 0; }
+
+  /* ── Summary ── */
+  .summary {
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #2a2520;
+    font-weight: 300;
+    border-left: 3px solid var(--accent);
+    padding-left: 18px;
+  }
+
+  /* ── Experience ── */
+  .job { margin-bottom: 28px; }
+  .job:last-child { margin-bottom: 0; }
+
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2px;
+  }
+
+  .job-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 15.5px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .job-period {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .job-company {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+
+  .job-company a {
+    color: #2563a8;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .job-company a:hover {
+    text-decoration: underline;
+  }
+
+  /* ── Key Work / Systems Built ── */
+  .system-item {
+    margin-bottom: 20px;
+    padding-left: 14px;
+    border-left: 2px solid var(--rule);
+  }
+
+  .system-item:last-child { margin-bottom: 0; }
+
+  .system-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  .system-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .system-bullets li {
+    font-size: 12.5px;
+    color: #3a3530;
+    line-height: 1.7;
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .system-bullets li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .job-desc {
+    font-size: 13px;
+    color: #3a3530;
+    line-height: 1.75;
+  }
+
+  .metric-row {
+    display: flex;
+    gap: 16px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+
+  .metric {
+    background: var(--accent);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    letter-spacing: 0.5px;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 22px 0;
+  }
+
+  /* ── Side column ── */
+  .side-section { margin-bottom: 32px; }
+  .side-section:last-child { margin-bottom: 0; }
+
+  .side-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .edu-degree {
+    font-family: 'Playfair Display', serif;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+
+  .edu-detail {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+
+  .edu-block { margin-bottom: 16px; }
+
+  .skill-group { margin-bottom: 14px; }
+
+  .skill-category {
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .tag {
+    font-size: 11px;
+    font-weight: 400;
+    padding: 2px 8px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    color: #3a3530;
+  }
+
+  .cert-item {
+    font-size: 12.5px;
+    color: #3a3530;
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--rule);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.4;
+  }
+
+  .cert-item::before {
+    content: '✦';
+    font-size: 9px;
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .cert-item:last-child { border-bottom: none; }
+
+  .blog-link {
+    font-size: 12.5px;
+    color: var(--ink);
+  }
+
+  .blog-link a {
+    color: var(--accent);
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 16px 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--highlight);
+  }
+
+  .footer-stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  /* ── Print ── */
+  @media print {
+    body { background: white; }
+    body::before { display: none; }
+    .page { margin: 0; box-shadow: none; }
+  }
+
+  @media (max-width: 700px) {
+    .body { grid-template-columns: 1fr; }
+    .side-col { border-top: 1px solid var(--rule); }
+    header { grid-template-columns: 1fr; }
+    .contact-block { text-align: left; margin-top: 16px; }
+    .name { font-size: 38px; }
+    .main-col { padding: 36px 28px; }
+    .side-col { padding: 32px 28px; }
+    header { padding: 36px 28px 28px; }
+    footer { padding: 16px 28px; gap: 12px; flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ── HEADER ── -->
+  <header>
+    <div>
+      <div class="name">Pankaj <span>Kumar</span></div>
+      <div class="tagline">Deliverability Lead &nbsp;·&nbsp; CRM Strategist &nbsp;·&nbsp; Founder @ University of Email</div>
+    </div>
+    <div class="contact-block">
+      <a href="/cdn-cgi/l/email-protection#c18ab4aca0b3b1a0afaaa0abf6f8f281a6aca0a8adefa2aeac"><span class="__cf_email__" data-cfemail="a3e8d6cec2d1d3c2cdc8c2c9949a90e3c4cec2cacf8dc0ccce">[email&#160;protected]</span></a><br>
+      +91 97006 15370 &nbsp;·&nbsp; Pune, India<br>
+      <a href="http://www.universityofemail.com" target="_blank">universityofemail.com</a><br>
+      <a href="https://www.linkedin.com/in/kumarpankaj793/" target="_blank">linkedin.com/in/kumarpankaj793</a>
+    </div>
+  </header>
+
+  <!-- ── BODY ── -->
+  <div class="body">
+
+    <!-- ── MAIN ── -->
+    <div class="main-col">
+
+      <section>
+        <div class="section-label">Profile</div>
+        <p class="summary">
+          Deliverability leader specializing in high-scale email systems, managing 2.5B+ monthly communications across email, SMS, and push at Blueshift.
+
+Known for building deliverability intelligence systems, ISP-level optimization (Gmail, Yahoo, Microsoft), and AI-driven automation to proactively detect reputation and bounce risks.
+
+Combines deep technical expertise (PowerMTA, DNS, SPF/DKIM/DMARC, Linux) with lifecycle and CRM strategy. Founder of University of Email.
+        </p>
+      </section>
+
+      <section>
+        <div class="section-label">Experience</div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Lead Deliverability <span style="font-size:12px;font-weight:400;color:var(--muted);"></span></div>
+            <div class="job-period">Aug 2023 – Present</div>
+          </div>
+          <div class="job-company"><a href="https://blueshift.com/" target="_blank">Blueshift Labs (CDAP Platform)</a> &nbsp;·&nbsp; Pune</div>
+          <div class="job-desc">
+            Promoted to lead all deliverability strategy across Blueshift's customer base. Spearhead AI-powered automation and implementation initiatives, advise enterprise customers on inbox placement, and represent Blueshift externally — including as a featured author on Email Address Validation and the 2026 Deliverability blog. Panelist at <strong>Email Camp 2023</strong> (Sinch) on debunking deliverability myths.
+          </div>
+        </div>
+
+        <div class="job" style="margin-top:16px;">
+          <div class="job-header">
+            <div class="job-title">Senior Deliverability Analyst</div>
+            <div class="job-period">Apr 2021 – Aug 2023</div>
+          </div>
+          <div class="job-company"><a href="https://blueshift.com/" target="_blank">Blueshift Labs (CDAP Platform)</a> &nbsp;·&nbsp; Pune</div>
+          <div class="job-desc">
+            Designed CRM and email deliverability strategies for enterprise clients. Led onboarding, journey builder execution, and recommendation studio campaigns. Built automated monitoring for SNDS, DNSBL, DNS checks, bounce alerts, and volume compliance. Developed a proprietary email Health Score framework and redesigned reporting templates. Contributed to Blueshift's Deliverability Doctor blog series.
+          </div>
+          <div class="metric-row">
+            <div class="metric">2.5B+ Comms/month</div>
+            <div class="metric">Email</div>
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Senior CRM Analyst</div>
+            <div class="job-period">Oct 2017 – Mar 2021</div>
+          </div>
+          <div class="job-company"><a href="https://www.teletextholidays.co.uk/" target="_blank">Teletext Holidays (E-commerce)</a> &nbsp;·&nbsp; Hyderabad</div>
+          <div class="job-desc">
+            Owned end-to-end CRM for Teletext Holidays and Alpharooms — ~5M emails/week — maintaining 30% monthly average open rates in UK/IE. Drove acquisition, retention, and reactivation via optimised lifecycle and triggered campaigns. Introduced a preference centre webform that reduced complaints by 50% YoY. Led platform migrations (SendGrid → SmartFocus → ACTITO) and collaborated with BI to build a new CRM reporting dashboard.
+          </div>
+          <div class="metric-row">
+            <div class="metric">~15% YoY Booking Growth</div>
+            <div class="metric">+24% Sales Calls YoY</div>
+            <div class="metric">−50% Complaints YoY</div>
+            <div class="metric">Email · SMS · Push</div>
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Deliverability Analyst → Sr. Analyst</div>
+            <div class="job-period">Jan 2014 – Sep 2017</div>
+          </div>
+          <div class="job-company"><a href="http://www.zetaglobal.com" target="_blank">Zeta Global (ESP)</a> &nbsp;·&nbsp; Hyderabad</div>
+          <div class="job-desc">
+            Joined as intern, progressed to Senior Deliverability Analyst. Managed campaign delivery, PowerMTA configuration, IP/domain warm-ups, FBL services, and SPF/DKIM/DMARC setup. Automated manual tasks using Perl — built custom DNSBL monitoring, Hotmail spam-trap reporting, and IP management tools. Used Return Path, Litmus, SNDS/JMRP, MXToolBox, SenderScore, and Google Postmaster Tools.
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-label">Key Work / Systems Built</div>
+
+        <div class="system-item">
+          <div class="system-title">Deliverability Intelligence System <span style="font-size:11px;font-weight:400;color:var(--muted);">(Blueshift)</span></div>
+          <ul class="system-bullets">
+            <li>Built a centralized system integrating SendGrid, SparkPost, and Mailgun APIs</li>
+            <li>Aggregates bounce logs, ISP metrics, and reputation signals</li>
+            <li>Generates automated insights on blocks, domain health, and anomalies</li>
+            <li>Reduced manual analysis effort and enabled proactive issue detection</li>
+          </ul>
+        </div>
+
+        <div class="system-item">
+          <div class="system-title">Deliverability Monitoring Automation</div>
+          <ul class="system-bullets">
+            <li>Designed automated checks for SNDS, DNSBL, DNS health, and sending anomalies</li>
+            <li>Created alerting and reporting workflows for faster issue resolution</li>
+          </ul>
+        </div>
+
+        <div class="system-item">
+          <div class="system-title">Email Health Scoring Framework</div>
+          <ul class="system-bullets">
+            <li>Developed a domain-level health score based on engagement, bounces, and reputation signals</li>
+            <li>Used for prioritization and customer advisory</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-label">Founder &amp; Thought Leadership</div>
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Founder &amp; Author</div>
+            <div class="job-period">Jan 2018 – Present</div>
+          </div>
+          <div class="job-company">University of Email &nbsp;·&nbsp; universityofemail.com</div>
+          <div class="job-desc">
+            Independent CRM and email deliverability blog with 50+ published posts. Topics span deliverability strategy, list hygiene, inbox placement, and lifecycle marketing. Built and maintained email verifier tool in Perl for validating address lists.
+          </div>
+        </div>
+        <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;">
+          <div class="metric">📣 Email Camp 2023 Panelist – Sinch</div>
+          <div class="metric">📣 Deliverability User Training Sessions Panelist - Blueshift</div>
+          <div class="metric">✍️ Blueshift Deliverability Doctor Series</div>
+          <div class="metric">1,731 LinkedIn Followers</div>
+        </div>
+      </section>
+
+    </div><!-- /main-col -->
+
+    <!-- ── SIDE ── -->
+    <div class="side-col">
+
+      <div class="side-section">
+        <div class="side-label">Education</div>
+        <div class="edu-block">
+          <div class="edu-degree">MBA – Digital Business</div>
+          <div class="edu-detail">BITS Pilani &nbsp;·&nbsp; 2025</div>
+          <div class="edu-detail" style="color:var(--accent);font-weight:500;">CGPA 8.2 / 10</div>
+        </div>
+        <div class="edu-block">
+          <div class="edu-degree">B.Tech – Computer Science</div>
+          <div class="edu-detail">BPUT Orissa &nbsp;·&nbsp; 2014</div>
+          <div class="edu-detail" style="color:var(--accent);font-weight:500;">CGPA 7.89 / 10</div>
+        </div>
+      </div>
+
+      <div class="side-section">
+        <div class="side-label">Tools & Technology</div>
+
+        <div class="skill-group">
+          <div class="skill-category">CRM / ESPs</div>
+          <div class="skill-tags">
+            <span class="tag">Blueshift</span><span class="tag">Salesforce</span><span class="tag">HubSpot</span><span class="tag">ACTITO</span><span class="tag">MoEngage</span><span class="tag">Responsys</span><span class="tag">Sendgrid</span><span class="tag">Mailchimp</span><span class="tag">Sparkpost</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-category">Analytics</div>
+          <div class="skill-tags">
+            <span class="tag">Google Analytics</span><span class="tag">Litmus</span><span class="tag">MixPanel</span><span class="tag">Validity</span><span class="tag">250ok</span><span class="tag">Base SAS</span><span class="tag">Athena</span><span class="tag">Superset</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-category">Technical</div>
+          <div class="skill-tags">
+            <span class="tag">PowerMTA</span><span class="tag">Python (basic)</span><span class="tag">Postman</span><span class="tag">Claude Code</span><span class="tag">Codex</span><span class="tag">HTML</span><span class="tag">SQL</span><span class="tag">Linux</span><span class="tag">JIRA</span><span class="tag">SPF/DKIM/DMARC</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="side-section">
+        <div class="side-label">Certifications</div>
+        <div class="cert-item">Blueshift CDP Fundamental & Deliverability</div>
+        <div class="cert-item">Salesforce Trailhead – 30 Badges, 3 Trails</div>
+        <div class="cert-item">Information Security – Udacity (2021)</div>
+        <div class="cert-item">HubSpot Email Marketing Certified (2020)</div>
+        <div class="cert-item">Google Analytics for Beginners (2019)</div>
+        <div class="cert-item">Base SAS Certified – A00-211 (2018)</div>
+      </div>
+
+      <div class="side-section">
+        <div class="side-label">Volunteering</div>
+        <div class="cert-item">Class Interaction Committee, Gandhi Engineering College (2011–2013) — student feedback liaison to college authorities</div>
+      </div>
+
+    </div><!-- /side-col -->
+
+  </div><!-- /body -->
+
+  <!-- ── FOOTER STATS ── -->
+  <footer>
+    <div class="footer-stat">
+      <div class="stat-num">~12</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="footer-stat">
+      <div class="stat-num">2.5B+</div>
+      <div class="stat-label">Monthly Comms</div>
+    </div>
+    <div class="footer-stat">
+      <div class="stat-num">Multiple</div>
+      <div class="stat-label">Industries</div>
+    </div>
+    <div class="footer-stat">
+      <div class="stat-num">8.2</div>
+      <div class="stat-label">MBA CGPA</div>
+    </div>
+    <div class="footer-stat">
+      <div clas
